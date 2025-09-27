@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Primary SEO Meta Tags -->
-    <title>Shakil Hosen | EEE Student, Wikimedia Steward & Technology Enthusiast | Bangladesh</title>
-    <meta name="title" content="Shakil Hosen | EEE Student, Wikimedia Steward & Technology Enthusiast | Bangladesh">
-    <meta name="description" content="Shakil Hosen - Final year Electrical Engineering student at Green University Bangladesh, Wikimedia Steward, Wikipedia Administrator, and technology enthusiast. Expert in biosensor research, programming, and open knowledge advocacy.">
+    <title>Shakil Hosen | EEE Student & Wikimedia Steward</title>
+    <meta name="title" content="Shakil Hosen | EEE Student & Wikimedia Steward">
+    <meta name="description" content="Shakil Hosen - EEE student at Green University Bangladesh, Wikimedia Steward, and technology enthusiast. Expert in biosensor research, programming, and open knowledge advocacy.">
     <meta name="keywords" content="Shakil, Shakil Hosen, Shakil Bangladesh, Shakil engineer, EEE student Bangladesh, Wikimedia Steward, Wikipedia administrator, biosensor research, Green University Bangladesh, Shakil technology, Shakil programming">
     <meta name="author" content="Shakil Hosen">
     <meta name="robots" content="index, follow">
@@ -40,8 +40,8 @@
     <!-- Open Graph / Facebook Meta Tags -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://shakil.live/">
-    <meta property="og:title" content="Shakil Hosen | EEE Student, Wikimedia Steward & Technology Enthusiast">
-    <meta property="og:description" content="Shakil Hosen - Final year Electrical Engineering student at Green University Bangladesh, Wikimedia Steward, Wikipedia Administrator, and technology enthusiast. Expert in biosensor research, programming, and open knowledge advocacy.">
+    <meta property="og:title" content="Shakil Hosen | EEE Student & Wikimedia Steward">
+    <meta property="og:description" content="Shakil Hosen - EEE student at Green University Bangladesh, Wikimedia Steward, and technology enthusiast. Expert in biosensor research, programming, and open knowledge advocacy.">
     <meta property="og:image" content="https://shakil.live/images/Shakil-2025.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -52,14 +52,23 @@
     <!-- Twitter Card Meta Tags -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://shakil.live/">
-    <meta property="twitter:title" content="Shakil Hosen | EEE Student, Wikimedia Steward & Technology Enthusiast">
-    <meta property="twitter:description" content="Shakil Hosen - Final year Electrical Engineering student at Green University Bangladesh, Wikimedia Steward, Wikipedia Administrator, and technology enthusiast.">
+    <meta property="twitter:title" content="Shakil Hosen | EEE Student & Wikimedia Steward">
+    <meta property="twitter:description" content="Shakil Hosen - EEE student at Green University Bangladesh, Wikimedia Steward, and technology enthusiast.">
     <meta property="twitter:image" content="https://shakil.live/images/Shakil-2025.png">
     <meta property="twitter:image:alt" content="Shakil Hosen - Professional Photo">
     
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="alternate icon" href="favicon.ico">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
     
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -229,8 +238,16 @@
             border-top: 1px solid #e9ecef;
             padding-top: 20px;
         }
+        
+        /* Responsive Design Media Queries */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
             .container {
                 padding: 20px;
+                margin: 0;
+                border-radius: 10px;
             }
             h1 {
                 font-size: 2rem;
@@ -238,6 +255,58 @@
             .profile-photo {
                 width: 150px;
                 height: 150px;
+            }
+            .skills {
+                justify-content: center;
+            }
+            .skill-tag {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+            .contact-info {
+                padding: 15px;
+            }
+            .contact-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            .contact-item strong {
+                min-width: auto;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            body {
+                padding: 5px;
+            }
+            .container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .subtitle {
+                font-size: 1rem;
+            }
+            .profile-photo {
+                width: 120px;
+                height: 120px;
+            }
+            .section h2 {
+                font-size: 1.3rem;
+            }
+            .breadcrumb {
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media screen and (min-width: 1200px) {
+            body {
+                max-width: 1000px;
+            }
+            .container {
+                padding: 50px;
             }
         }
     </style>
@@ -260,7 +329,10 @@
         </nav>
         
         <header class="header">
-            <img src="images/Shakil-2025.png" alt="Shakil Hosen - Professional photo of Electrical Engineering student and Wikimedia Steward from Bangladesh" class="profile-photo">
+            <picture>
+                <source srcset="images/Shakil-2025.webp" type="image/webp">
+                <img src="images/Shakil-2025.png" alt="Shakil Hosen - Professional photo of Electrical Engineering student and Wikimedia Steward from Bangladesh" class="profile-photo" loading="lazy" width="200" height="200">
+            </picture>
             <h1>Shakil Hosen</h1>
             <p class="subtitle">EEE Student, Wikimedian & Technology Enthusiast</p>
         </header>
@@ -270,16 +342,16 @@
             <h2>About Me</h2>
             <p>Hi, I'm <strong>Shakil Hosen</strong> — a student, volunteer, and open knowledge advocate.</p>
             
-            <p>I'm currently in my final year of a B.Sc. in <strong>Electrical and Electronic Engineering (EEE)</strong> at <strong>Green University of Bangladesh</strong>. My thesis research focuses on <strong>Surface Plasmon Resonance (SPR) biosensors</strong>, exploring how optical techniques can be used to design sensitive and reliable biosensing systems for real-world applications. Beyond research, I've worked on academic projects involving Arduino-based automation, microprocessor programming, renewable energy systems, and smart access/security technologies.</p>
+            <p>I'm currently in my final year of a B.Sc. in <strong>Electrical and Electronic Engineering (EEE)</strong> at <strong>Green University of Bangladesh</strong>. My thesis research focuses on <strong>Surface Plasmon Resonance (SPR) biosensors</strong>, exploring how optical techniques can be used to design sensitive and reliable biosensing systems for real-world applications. Beyond research, I've worked on academic projects involving Arduino-based automation, microprocessor programming, renewable energy systems, and smart access/security technologies. You can explore my <a href="#skills">technical skills</a> and <a href="#professional-background">professional background</a> below.</p>
             
             <p>Alongside my studies, I serve as a <strong>Wikimedia Steward</strong>, entrusted with supporting communities across Wikimedia's global projects. I'm also an <strong>administrator on Bangla Wikipedia</strong> and <strong>Deputy Coordinator of Dhaka Wikimedia Community</strong>. Over the years, I've organized writing contests, facilitated workshops, built MediaWiki templates and modules, and developed tools and bots to make collaboration easier. I'm deeply passionate about building a stronger Bangla-language knowledge ecosystem while contributing to Wikimedia's worldwide mission of free knowledge.</p>
             
             <p>My interests lie at the intersection of engineering, technology, and open communities. Whether it's experimenting with biosensor designs, documenting social change through photography, or helping newcomers discover the joy of contributing to open platforms, I strive to combine technical expertise with a commitment to knowledge sharing.</p>
             
-            <p>Looking ahead, I aim to continue bridging scientific innovation and collaborative platforms, contributing to sustainable technology while empowering communities through open knowledge.</p>
+            <p>Looking ahead, I aim to continue bridging scientific innovation and collaborative platforms, contributing to sustainable technology while empowering communities through open knowledge. Feel free to <a href="#contact-information">get in touch</a> if you'd like to collaborate or learn more about my work.</p>
         </section>
         
-        <section class="section">
+        <section class="section" id="skills">
             <h2>Skills</h2>
             <h3 style="color: #495057; margin-bottom: 10px;">Engineering & Research:</h3>
             <div class="skills">
@@ -320,7 +392,7 @@
             </div>
         </section>
         
-        <section class="section">
+        <section class="section" id="professional-background">
             <h2>Professional Background</h2>
             <p>I am a final-year <strong>Electrical and Electronic Engineering (EEE)</strong> student at <strong>Green University of Bangladesh</strong>, specializing in power systems and biosensor research. My current thesis focuses on the development of <strong>Surface Plasmon Resonance (SPR) biosensors</strong>, combining engineering knowledge with real-world healthcare applications.</p>
             
@@ -329,14 +401,14 @@
             <p>My professional journey blends engineering expertise, open-source development, and community leadership, with the goal of advancing sustainable technologies while strengthening open knowledge ecosystems.</p>
         </section>
         
-        <section class="section">
+        <section class="section" id="contact-information">
             <h2>Contact Information</h2>
             <div class="contact-info" itemscope itemtype="https://schema.org/ContactPoint">
                 <div class="contact-item">
                     <strong>Website:</strong> <span itemprop="url">shakil.live</span>
                 </div>
                 <div class="contact-item">
-                    <strong>GitHub:</strong> <a href="https://github.com/shakil-mdshosen" target="_blank" itemprop="url">github.com/shakil-mdshosen</a>
+                    <strong>GitHub:</strong> <a href="https://github.com/shakil-mdshosen" target="_blank" rel="noopener noreferrer" itemprop="url">github.com/shakil-mdshosen</a>
                 </div>
                 <div class="contact-item">
                     <strong>Location:</strong> <span itemprop="areaServed">Available for remote work</span>
@@ -345,7 +417,7 @@
                     <strong>Email:</strong> <a href="mailto:shakil.eee.green@gmail.com" itemprop="email">shakil.eee.green@gmail.com</a> / <a href="mailto:shakil@bnwp.org" itemprop="email">shakil@bnwp.org</a>
                 </div>
                 <div class="contact-item">
-                    <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/shakil-hosen/" target="_blank" itemprop="url">linkedin.com/in/shakil-hosen</a>
+                    <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/shakil-hosen/" target="_blank" rel="noopener noreferrer" itemprop="url">linkedin.com/in/shakil-hosen</a>
                 </div>
             </div>
         </section>
