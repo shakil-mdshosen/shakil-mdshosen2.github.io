@@ -3,72 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shakil's Website</title>
+    <title>Shakil Md Shosen - Personal Website</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
             margin: 0 auto;
             padding: 20px;
             line-height: 1.6;
-            background-color: #f4f4f4;
+            background-color: #f5f7fa;
+            color: #333;
         }
         .container {
             background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: block;
+            border: 5px solid #007bff;
+            object-fit: cover;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .profile-photo-placeholder {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 5px solid #007bff;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-size: 48px;
+            color: white;
+            font-weight: bold;
         }
         h1 {
-            color: #333;
+            color: #2c3e50;
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 300;
+        }
+        .subtitle {
+            color: #6c757d;
+            font-size: 1.2rem;
+            margin: 10px 0;
+            font-weight: 300;
+        }
+        .section {
+            margin: 30px 0;
+        }
+        .section h2 {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .skill-tag {
+            background: #007bff;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .contact-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .contact-item {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        .contact-item strong {
+            min-width: 80px;
+            color: #007bff;
+        }
+        footer {
+            margin-top: 40px;
             text-align: center;
+            color: #6c757d;
+            border-top: 1px solid #e9ecef;
+            padding-top: 20px;
         }
-        .status {
-            background: #d4edda;
-            border: 1px solid #c3e6cb;
-            color: #155724;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 20px 0;
-        }
-        .setup-info {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            color: #856404;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 20px 0;
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to shakil.live</h1>
-        
-        <div class="status">
-            <strong>🎉 Domain Setup Complete!</strong><br>
-            Your custom domain <code>shakil.live</code> is now configured for GitHub Pages hosting.
+        <div class="header">
+            <img src="images/profile.svg" alt="Shakil Md Shosen" class="profile-photo">
+            <h1>Shakil Md Shosen</h1>
+            <p class="subtitle">Software Developer & Technology Enthusiast</p>
         </div>
         
-        <div class="setup-info">
-            <strong>⚠️ DNS Configuration Required</strong><br>
-            To complete the setup, configure your DNS settings at your domain registrar (name.com). 
-            See the README file for detailed instructions.
+        <div class="section">
+            <h2>About Me</h2>
+            <p>Welcome to my personal website! I am a passionate software developer with expertise in modern web technologies and a strong commitment to creating innovative solutions. I enjoy working on challenging projects that combine technical excellence with practical problem-solving.</p>
+            
+            <p>I have experience in full-stack development, with a focus on creating scalable web applications and intuitive user experiences. My goal is to leverage technology to make a positive impact and contribute to meaningful projects.</p>
         </div>
         
-        <h2>About This Site</h2>
-        <p>This website is hosted on GitHub Pages with a custom domain. The site is automatically deployed from the GitHub repository whenever changes are pushed to the main branch.</p>
+        <div class="section">
+            <h2>Skills & Technologies</h2>
+            <div class="skills">
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">HTML/CSS</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Database Design</span>
+                <span class="skill-tag">Web Development</span>
+                <span class="skill-tag">Problem Solving</span>
+            </div>
+        </div>
         
-        <h2>Next Steps</h2>
-        <ul>
-            <li>Configure DNS settings at your domain registrar</li>
-            <li>Set up free email hosting (see README for options)</li>
-            <li>Customize this website with your content</li>
-            <li>Enable HTTPS in GitHub Pages settings</li>
-        </ul>
+        <div class="section">
+            <h2>Professional Background</h2>
+            <p>I have been developing my skills in software development through various projects and continuous learning. My experience includes working with modern web frameworks, database management, and creating responsive user interfaces.</p>
+            
+            <p>I am always eager to take on new challenges and collaborate with others to build impactful software solutions. I believe in writing clean, maintainable code and following best practices in software development.</p>
+        </div>
         
-        <footer style="margin-top: 40px; text-align: center; color: #666;">
-            <p>Hosted on GitHub Pages | Domain: shakil.live</p>
+        <div class="section">
+            <h2>Contact Information</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>Website:</strong> shakil.live
+                </div>
+                <div class="contact-item">
+                    <strong>GitHub:</strong> <a href="https://github.com/shakil-mdshosen" target="_blank">github.com/shakil-mdshosen</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Location:</strong> Available for remote work
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2024 Shakil Md Shosen | Built with ❤️ and hosted on GitHub Pages</p>
         </footer>
     </div>
 </body>
