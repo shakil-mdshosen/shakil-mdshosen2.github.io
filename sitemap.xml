@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    <url>
+        <loc>https://shakil.live/</loc>
+        <lastmod>2025-01-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://shakil.live/images/Shakil-2025.png</image:loc>
+            <image:title>Shakil Hosen - Professional Photo</image:title>
+            <image:caption>Shakil Hosen - EEE Student, Wikimedia Steward and Technology Enthusiast from Bangladesh</image:caption>
+        </image:image>
+    </url>
+</urlset>
