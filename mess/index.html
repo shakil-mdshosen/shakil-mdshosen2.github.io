@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>Mess Search | Shakil Hosen</title>
+    <meta name="title" content="Mess Search | Shakil Hosen">
+    <meta name="description" content="Search mess records and view details">
+    <meta name="author" content="Shakil Hosen">
+    <meta name="robots" content="noindex, follow">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://shakil.live/mess/">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="alternate icon" href="../favicon.ico">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 300;
+        }
+        
+        .subtitle {
+            color: #6c757d;
+            font-size: 1.2rem;
+            margin: 10px 0;
+            font-weight: 300;
+        }
+        
+        .breadcrumb {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 20px;
+        }
+        
+        .breadcrumb a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .search-section {
+            margin-bottom: 30px;
+        }
+        
+        .search-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        label {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1rem;
+        }
+        
+        input[type="text"],
+        select {
+            padding: 12px 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        input[type="text"]:focus,
+        select:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+        
+        .search-btn {
+            padding: 12px 30px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .search-btn:hover {
+            background: #0056b3;
+        }
+        
+        .search-btn:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #6c757d;
+        }
+        
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #007bff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .result-section {
+            margin-top: 30px;
+        }
+        
+        .result-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+        
+        .result-table th,
+        .result-table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #e9ecef;
+        }
+        
+        .result-table th {
+            background: #007bff;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .result-table td {
+            background: #fff;
+            text-align: center;
+        }
+        
+        .result-table tr:nth-child(even) td {
+            background: #f8f9fa;
+        }
+        
+        .result-table tr:hover td {
+            background: #e9ecef;
+        }
+        
+        .no-result {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+            font-size: 1.1rem;
+        }
+        
+        .error-message {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .info-box {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .result-table {
+                font-size: 0.9rem;
+            }
+            
+            .result-table th,
+            .result-table td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Home</a> > <span>Mess Search</span>
+        </nav>
+        
+        <header class="header">
+            <h1>মেস সার্চ</h1>
+            <p class="subtitle">নাম দিয়ে মেস রেকর্ড খুঁজুন</p>
+        </header>
+        
+        <main>
+            <div class="info-box">
+                <p>📋 নাম নির্বাচন করুন এবং রেকর্ড দেখুন</p>
+            </div>
+            
+            <div class="search-section">
+                <form class="search-form" id="searchForm" onsubmit="return false;">
+                    <div class="form-group">
+                        <label for="nameSelect">নাম নির্বাচন করুন *</label>
+                        <select id="nameSelect" name="nameSelect" required>
+                            <option value="">-- নাম নির্বাচন করুন --</option>
+                        </select>
+                    </div>
+                    
+                    <button type="button" class="search-btn" id="searchBtn" onclick="searchRecord()">
+                        খুঁজুন
+                    </button>
+                </form>
+            </div>
+            
+            <div id="loadingIndicator" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>লোড হচ্ছে...</p>
+            </div>
+            
+            <div id="resultSection" class="result-section" style="display: none;">
+                <h2 style="color: #007bff; margin-bottom: 15px;">রেকর্ড</h2>
+                <div style="overflow-x: auto;">
+                    <table class="result-table" id="resultTable">
+                        <thead>
+                            <tr>
+                                <th>নাম</th>
+                                <th>মোট জমা</th>
+                                <th>মোট মিল</th>
+                                <th>মোট খরচ</th>
+                                <th>বাকী</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div id="noResult" class="no-result" style="display: none;">
+                <p>❌ রেকর্ড পাওয়া যায়নি</p>
+            </div>
+            
+            <div id="errorMessage" class="error-message" style="display: none;">
+                <p><strong>Error:</strong> <span id="errorText"></span></p>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="/" class="back-link">← হোমপেজে ফিরে যান</a>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 Shakil Hosen | Built with ❤️ and hosted on GitHub Pages</p>
+        </footer>
+    </div>
+
+    <script>
+        // Google Sheets configuration
+        // To use this, the Google Sheet must be published to the web
+        // The sheet ID from: https://docs.google.com/spreadsheets/d/1FtWwq3g9UMQjMhFPamVVhrfHSP8VhQAZ/edit
+        const SHEET_ID = '1FtWwq3g9UMQjMhFPamVVhrfHSP8VhQAZ';
+        const SHEET_NAME = 'Main';
+        
+        // For the sheet to work, it needs to be published:
+        // File > Share > Publish to web > Select "Main" sheet > Publish as CSV
+        // Then use: https://docs.google.com/spreadsheets/d/SHEET_ID/gviz/tq?tqx=out:csv&sheet=SHEET_NAME
+        
+        let sheetData = [];
+        let usingSampleData = false;
+        
+        // Sample data for demonstration (will be replaced with actual Google Sheet data when published)
+        const sampleData = [
+            ['রহিম', '', '', '', '', '', '', '5000', '', '', '', '', '50', '', '2500', '2500'],
+            ['করিম', '', '', '', '', '', '', '6000', '', '', '', '', '60', '', '3000', '3000'],
+            ['জামাল', '', '', '', '', '', '', '4500', '', '', '', '', '45', '', '2250', '2250'],
+            ['কামাল', '', '', '', '', '', '', '5500', '', '', '', '', '55', '', '2750', '2750'],
+            ['সালাম', '', '', '', '', '', '', '7000', '', '', '', '', '70', '', '3500', '3500']
+        ];
+        
+        // Load data when page loads
+        window.addEventListener('DOMContentLoaded', function() {
+            loadSheetData();
+        });
+        
+        async function loadSheetData() {
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const errorMessage = document.getElementById('errorMessage');
+            const errorText = document.getElementById('errorText');
+            const infoBox = document.querySelector('.info-box p');
+            
+            loadingIndicator.style.display = 'block';
+            errorMessage.style.display = 'none';
+            
+            try {
+                // Using Google Sheets CSV export (requires sheet to be published)
+                const csvUrl = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${SHEET_NAME}`;
+                
+                const response = await fetch(csvUrl);
+                
+                if (!response.ok) {
+                    throw new Error('Failed to load data from Google Sheets.');
+                }
+                
+                const csvText = await response.text();
+                sheetData = parseCSV(csvText);
+                
+                // Populate dropdown with names from column A (index 0)
+                populateNameDropdown();
+                
+                loadingIndicator.style.display = 'none';
+                usingSampleData = false;
+            } catch (error) {
+                console.error('Error loading sheet data:', error);
+                console.log('Using sample data for demonstration...');
+                
+                // Use sample data as fallback
+                sheetData = sampleData;
+                usingSampleData = true;
+                
+                // Update info box to show we're using sample data
+                infoBox.innerHTML = '⚠️ নমুনা ডেটা ব্যবহার করা হচ্ছে। আসল ডেটার জন্য, Google Sheet প্রকাশ করতে হবে: File > Share > Publish to web > Entire Document > Publish';
+                
+                // Populate dropdown with sample names
+                populateNameDropdown();
+                
+                loadingIndicator.style.display = 'none';
+            }
+        }
+        
+        function parseCSV(csv) {
+            const lines = csv.split('\n');
+            const result = [];
+            
+            for (let i = 1; i < lines.length; i++) { // Skip header row
+                if (lines[i].trim() === '') continue;
+                
+                const row = parseCSVLine(lines[i]);
+                if (row && row.length > 0 && row[0]) { // Only add if name exists
+                    result.push(row);
+                }
+            }
+            
+            return result;
+        }
+        
+        function parseCSVLine(line) {
+            const result = [];
+            let current = '';
+            let inQuotes = false;
+            
+            for (let i = 0; i < line.length; i++) {
+                const char = line[i];
+                
+                if (char === '"') {
+                    if (inQuotes && line[i + 1] === '"') {
+                        current += '"';
+                        i++;
+                    } else {
+                        inQuotes = !inQuotes;
+                    }
+                } else if (char === ',' && !inQuotes) {
+                    result.push(current.trim());
+                    current = '';
+                } else {
+                    current += char;
+                }
+            }
+            
+            result.push(current.trim());
+            return result;
+        }
+        
+        function populateNameDropdown() {
+            const nameSelect = document.getElementById('nameSelect');
+            nameSelect.innerHTML = '<option value="">-- নাম নির্বাচন করুন --</option>';
+            
+            // Get unique names from column A (index 0)
+            const names = [...new Set(sheetData.map(row => row[0]))].filter(name => name);
+            names.sort();
+            
+            names.forEach(name => {
+                const option = document.createElement('option');
+                option.value = name;
+                option.textContent = name;
+                nameSelect.appendChild(option);
+            });
+        }
+        
+        function searchRecord() {
+            const nameSelect = document.getElementById('nameSelect');
+            const selectedName = nameSelect.value;
+            
+            const resultSection = document.getElementById('resultSection');
+            const noResult = document.getElementById('noResult');
+            const errorMessage = document.getElementById('errorMessage');
+            const resultBody = document.getElementById('resultBody');
+            
+            // Hide all result sections
+            resultSection.style.display = 'none';
+            noResult.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            if (!selectedName) {
+                const errorText = document.getElementById('errorText');
+                errorMessage.style.display = 'block';
+                errorText.textContent = 'দয়া করে একটি নাম নির্বাচন করুন';
+                return;
+            }
+            
+            // Filter data by selected name
+            // Columns: A=0 (name), H=7 (total deposit), M=12 (total meals), O=14 (total expense), P=15 (remaining)
+            const matchedRows = sheetData.filter(row => row[0] === selectedName);
+            
+            if (matchedRows.length === 0) {
+                noResult.style.display = 'block';
+                return;
+            }
+            
+            // Display results
+            resultBody.innerHTML = '';
+            
+            matchedRows.forEach(row => {
+                const tr = document.createElement('tr');
+                
+                // Name (column A, index 0)
+                const tdName = document.createElement('td');
+                tdName.textContent = row[0] || '';
+                tr.appendChild(tdName);
+                
+                // Total Deposit (column H, index 7)
+                const tdDeposit = document.createElement('td');
+                tdDeposit.textContent = row[7] || '0';
+                tr.appendChild(tdDeposit);
+                
+                // Total Meals (column M, index 12)
+                const tdMeals = document.createElement('td');
+                tdMeals.textContent = row[12] || '0';
+                tr.appendChild(tdMeals);
+                
+                // Total Expense (column O, index 14)
+                const tdExpense = document.createElement('td');
+                tdExpense.textContent = row[14] || '0';
+                tr.appendChild(tdExpense);
+                
+                // Remaining (column P, index 15)
+                const tdRemaining = document.createElement('td');
+                tdRemaining.textContent = row[15] || '0';
+                tr.appendChild(tdRemaining);
+                
+                resultBody.appendChild(tr);
+            });
+            
+            resultSection.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
