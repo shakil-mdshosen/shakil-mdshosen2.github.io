@@ -257,25 +257,26 @@
             border-radius: 6px;
             padding: 10px;
             position: absolute;
-            z-index: 1;
-            bottom: 125%;
+            z-index: 1000;
+            top: 125%;
             left: 50%;
             margin-left: -140px;
             opacity: 0;
             transition: opacity 0.3s;
             font-size: 0.9rem;
             line-height: 1.4;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
         
         .tooltip .tooltiptext::after {
             content: "";
             position: absolute;
-            top: 100%;
+            bottom: 100%;
             left: 50%;
             margin-left: -5px;
             border-width: 5px;
             border-style: solid;
-            border-color: #555 transparent transparent transparent;
+            border-color: transparent transparent #555 transparent;
         }
         
         .tooltip:hover .tooltiptext {
@@ -302,8 +303,11 @@
             }
             
             .tooltip .tooltiptext {
-                width: 220px;
-                margin-left: -110px;
+                width: 90vw;
+                max-width: 280px;
+                left: 50%;
+                transform: translateX(-50%);
+                margin-left: 0;
                 font-size: 0.85rem;
             }
         }
