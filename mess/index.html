@@ -241,6 +241,48 @@
             text-decoration: underline;
         }
         
+        /* Tooltip styles */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: help;
+        }
+        
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 280px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -140px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+        
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        
         @media (max-width: 768px) {
             .container {
                 padding: 20px;
@@ -257,6 +299,12 @@
             .result-table th,
             .result-table td {
                 padding: 8px;
+            }
+            
+            .tooltip .tooltiptext {
+                width: 220px;
+                margin-left: -110px;
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -308,7 +356,11 @@
                                 <th>মোট জমা</th>
                                 <th>মোট মিল</th>
                                 <th>মোট খরচ</th>
-                                <th>বাকী</th>
+                                <th>
+                                    <div class="tooltip">পাবে/দিবে
+                                        <span class="tooltiptext">যদি সংখ্যা প্লাস হয় তবে পাবে, আর যদি মাইনাস হয় তবে দিবে</span>
+                                    </div>
+                                </th>
                             </tr>
                         </thead>
                         <tbody id="resultBody">
